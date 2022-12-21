@@ -1,28 +1,30 @@
 import { useState } from "react";
+
 import "./App.css";
+
+// Utils and data
+import { generateTrivia } from "./utils/quizz";
+
+// Components
 import Button from "./components/Button/Button";
 
 function App() {
 
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [inProgress, setInProgress] = useState(false);
-
-  const getTriviaQuestions = () => {
-    return fetch("https://the-trivia-api.com/api/questions?limit=10&region=SL&difficulty=hard")
-      .then(data => data.json())
-      .then(data => data);
-  }
+  const [inProgress, setInProgress] = useState(false); // Trivia in progress
 
   const startQuizz = async () => {
     setLoading(true);
-    getTriviaQuestions().then(questions => {
-      setQuestions(questions);
+    try {
+      const trivia = await generateTrivia();
+      setQuestions(trivia);
       setInProgress(true);
-    }).finally(() => {
+    } catch (error) {
+      // show message to user
+    } finally {
       setLoading(false);
-    })
-
+    }
   }
 
   return (
@@ -41,22 +43,22 @@ function App() {
 
       {(questions.length > 0 && inProgress) && <>
         {questions.map((q, idx) => {
-          return <div style={{ marginBottom: "2rem" }}>
+          return <div key={idx} style={{ marginBottom: "2rem" }}>
             <b>Question #{idx + 1} / {questions.length}</b>
             <p>{q.question}</p>
             <div>
 
               {q.incorrectAnswers.map(ans => {
                 return (
-                  <div>
+                  <div key={ans}>
                     <input id={ans} type="radio" name="answer" value={ans} />
-                    <label for={ans}>{ans}</label>
+                    <label htmlFor={ans}>{ans}</label>
                   </div>
                 )
               })}
               <div>
                 <input id={q.correctAnswer} type="radio" name="answer" value={q.correctAnswer} />
-                <label for={q.correctAnswer}>{q.correctAnswer}</label>
+                <label htmlFor={q.correctAnswer}>{q.correctAnswer}</label>
               </div>
             </div>
           </div>
