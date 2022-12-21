@@ -1,0 +1,26 @@
+.app button.btn-3d {
+    cursor: pointer;
+    background-color: #2ECC71;
+    border: none;
+    padding: 1rem 4rem;
+    border-radius: 8px;
+    box-shadow: inset 0px -6px 0px #27AE60, 0px -6px 0px #2ECC71;
+    transition: .1s ease-in-out;
+}
+
+.app button.btn-3d:active {
+    box-shadow: none;
+}
+
+.button__text {
+    font-weight: bolder;
+    font-size: 18px;
+    margin: 0;
+    color: white;
+    transform: translate3d(0px, -3px, 0px);
+    transition: .1s ease-in-out;
+}
+
+.app button.btn-3d:active .button__text {
+    transform: translate3d(0px, 0px, 0px);
+}
