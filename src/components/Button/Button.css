@@ -1,7 +1,6 @@
 :root {
     --btn-green-color: #2ECC71;
     --btn-dark-green-color: #27AE60;
-    --btn-transition: .1s ease-in-out;
 }
 
 button.btn-3d {
@@ -11,7 +10,7 @@ button.btn-3d {
     padding: 1rem 4rem;
     border-radius: 8px;
     box-shadow: inset 0px -6px 0px var(--btn-dark-green-color), 0px -6px 0px var(--btn-green-color);
-    transition: var(--btn-transition);
+    transition: box-shadow .1s ease-in-out;
 }
 
 button.btn-3d .button__text {
@@ -20,7 +19,7 @@ button.btn-3d .button__text {
     margin: 0;
     color: white;
     transform: translate3d(0px, -3px, 0px);
-    transition: var(--btn-transition);
+    transition: transform .1s ease-in-out;
 }
 
 button.btn-3d:active {
@@ -29,4 +28,8 @@ button.btn-3d:active {
 
 button.btn-3d:active .button__text {
     transform: translate3d(0px, 0px, 0px);
+}
+
+button.btn-3d:disabled {
+    opacity: .7;
 }
