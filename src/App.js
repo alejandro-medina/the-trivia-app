@@ -7,6 +7,7 @@ import { generateTrivia } from "./utils/quizz";
 
 // Components
 import Cover from "./components/TriviaCover";
+import Trivia from "./components/Trivia/Trivia";
 
 function App() {
 
@@ -33,29 +34,8 @@ function App() {
 
       {(!inProgress || !questions.length) && <Cover startQuizz={startQuizz} loading={loading} />}
 
-      {(questions.length > 0 && inProgress) && <>
-        {questions.map((q, idx) => {
-          return <div key={idx} style={{ marginBottom: "2rem" }}>
-            <b>Question #{idx + 1} / {questions.length}</b>
-            <p>{q.question}</p>
-            <div>
+      {(questions.length > 0 && inProgress) && <Trivia questions={questions} />}
 
-              {q.incorrectAnswers.map(ans => {
-                return (
-                  <div key={ans}>
-                    <input id={ans} type="radio" name="answer" value={ans} />
-                    <label htmlFor={ans}>{ans}</label>
-                  </div>
-                )
-              })}
-              <div>
-                <input id={q.correctAnswer} type="radio" name="answer" value={q.correctAnswer} />
-                <label htmlFor={q.correctAnswer}>{q.correctAnswer}</label>
-              </div>
-            </div>
-          </div>
-        })}
-      </>}
     </div>
   );
 }
