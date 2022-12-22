@@ -6,7 +6,7 @@ import "./App.css";
 import { generateTrivia } from "./utils/quizz";
 
 // Components
-import Button from "./components/Button/Button";
+import Cover from "./components/TriviaCover";
 
 function App() {
 
@@ -15,6 +15,7 @@ function App() {
   const [inProgress, setInProgress] = useState(false); // Trivia in progress
 
   const startQuizz = async () => {
+    console.log("start")
     setLoading(true);
     try {
       const trivia = await generateTrivia();
@@ -29,17 +30,8 @@ function App() {
 
   return (
     <div className="app">
-      {(!inProgress || !questions.length) && <div style={loading ? { opacity: .5 } : null}>
-        <h1 style={{ margin: 0 }}>Bienvenido al quizz</h1>
-        <p>Pon a prueba tus conocimientos y supera cada vez más tu propio record!</p>
-        <br />
-        <Button text="Comenzar quizz" onClick={() => { startQuizz() }} />
-        <p>
-          <small>
-            * Por el momento, el quizz solo se encuentra disponible en <b>inglés</b>
-          </small>
-        </p>
-      </div>}
+
+      {(!inProgress || !questions.length) && <Cover startQuizz={startQuizz} loading={loading} />}
 
       {(questions.length > 0 && inProgress) && <>
         {questions.map((q, idx) => {
