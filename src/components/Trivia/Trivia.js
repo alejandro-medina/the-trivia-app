@@ -1,10 +1,16 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export default function Trivia({ questions }) {
 
-  const totalQuestions = questions.length;
   let [currentIndex, setCurrentIndex] = useState(0);
+  const [answer, setAnswer] = useState(null);
+
+  const totalQuestions = questions.length;
   const currentQuestion = questions[currentIndex];
+
+  const onSelectAnswer = ({ target: { value: answerIndex } }) => {
+    setAnswer(currentQuestion.answers[answerIndex]);
+  }
 
   return (
     <div>
@@ -20,19 +26,21 @@ export default function Trivia({ questions }) {
 
         {currentQuestion.answers.map((answer, idx) => {
           return <div key={`${currentQuestion.id}-ans-${idx}`}>
-            <input type="radio" name="answer" id={answer.answer} value={answer.answer} />
+            <input type="radio" name="answer"
+              id={answer.answer}
+              value={idx}
+              onChange={onSelectAnswer} />
             <label htmlFor={answer.answer}> {answer.answer} </label>
           </div>
         })}
         <br />
-        <button style={{marginRight: '10px'}} onClick={() => {
+        <button style={{ marginRight: '10px' }} onClick={() => {
           setCurrentIndex(current => current - 1)
         }}>Anterior</button>
         <button onClick={() => {
           setCurrentIndex(current => current + 1)
         }}>siguiente</button>
       </div>
-
     </div>
   )
 
