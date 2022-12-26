@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Question from "./Question";
 
 export default function Trivia({ questions }) {
 
@@ -19,29 +20,15 @@ export default function Trivia({ questions }) {
       <p style={{ margin: 0 }}>Type: {currentQuestion.type}</p>
       <p style={{ margin: 0 }}>Difficulty: {currentQuestion.difficulty}</p>
       <p style={{ margin: 0 }}>Category: {currentQuestion.category}</p>
-      <div>
-        <p style={{ fontSize: "1.5rem" }}>
-          {currentQuestion.question}
-        </p>
-
-        {currentQuestion.answers.map((answer, idx) => {
-          return <div key={`${currentQuestion.id}-ans-${idx}`}>
-            <input type="radio" name="answer"
-              id={answer.answer}
-              value={idx}
-              onChange={onSelectAnswer} />
-            <label htmlFor={answer.answer}> {answer.answer} </label>
-          </div>
-        })}
-        <br />
-        <button style={{ marginRight: '10px' }} onClick={() => {
-          setCurrentIndex(current => current - 1)
-        }}>Anterior</button>
-        <button onClick={() => {
-          setCurrentIndex(current => current + 1)
-        }}>siguiente</button>
-      </div>
+      <Question question={currentQuestion} onSelectAnswer={onSelectAnswer} />
+      <br />
+      <button style={{ marginRight: '10px' }} onClick={() => {
+        setCurrentIndex(current => current - 1)
+      }}>Anterior</button>
+      <button onClick={() => {
+        setAnswer(null);
+        setCurrentIndex(current => current + 1)
+      }}>siguiente</button>
     </div>
   )
-
 }
