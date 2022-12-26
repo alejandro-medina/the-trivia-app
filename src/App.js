@@ -16,7 +16,6 @@ function App() {
   const [inProgress, setInProgress] = useState(false); // Trivia in progress
 
   const startQuizz = async () => {
-    console.log("start")
     setLoading(true);
     try {
       const trivia = await generateTrivia();
