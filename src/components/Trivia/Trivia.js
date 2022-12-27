@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Question from "./Question";
 
 export default function Trivia({ questions, onTriviaEnds }) {
 
   let [currentIndex, setCurrentIndex] = useState(0);
   const [answer, setAnswer] = useState(null);
-  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const correctAnswers = useRef(0);
 
   const totalQuestions = questions.length;
   const currentQuestion = questions[currentIndex];
@@ -20,7 +20,7 @@ export default function Trivia({ questions, onTriviaEnds }) {
     if (!answer) return;
 
     if (answer.correct) {
-      setCorrectAnswers(count => count + 1);
+      correctAnswers.current = correctAnswers.current + 1;
     }
 
     setAnswer(null);
@@ -30,7 +30,7 @@ export default function Trivia({ questions, onTriviaEnds }) {
     } else {
       onTriviaEnds({
         totalQuestions,
-        totalCorrect: correctAnswers   
+        totalCorrect: correctAnswers.current   
       });
     }
   }
