@@ -33,7 +33,12 @@ function App() {
 
       {(!inProgress || !questions.length) && <Cover startQuizz={startQuizz} loading={loading} />}
 
-      {(questions.length > 0 && inProgress) && <Trivia questions={questions} />}
+      {(questions.length > 0 && inProgress) 
+        && <Trivia questions={questions} onTriviaEnds={(results) => {
+          setInProgress(false);
+           console.log(results);
+        }}/>
+      }
 
     </div>
   );
