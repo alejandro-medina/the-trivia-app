@@ -8,7 +8,7 @@ export default function Question({ question, onSelectAnswer }) {
         {question.question}
       </p>
       {question.answers.map((answer, idx) => {
-        return <Answer key={idx} answerText={answer.answer} index={idx} onSelectAnswer={onSelectAnswer} />
+        return <Answer key={`q-${question.id}-a-${idx}`} answerText={answer.answer} index={idx} onSelectAnswer={onSelectAnswer} />
       })}
     </div>
   )
