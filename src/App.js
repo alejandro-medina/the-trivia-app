@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import "./App.css";
-
 // Utils and data
 import { generateTrivia } from "./utils/quizz";
 
