@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import Badge from "../Badge";
 import Question from "./Question";
 
 export default function Trivia({ questions, onTriviaEnds }) {
@@ -30,7 +31,7 @@ export default function Trivia({ questions, onTriviaEnds }) {
     } else {
       onTriviaEnds({
         totalQuestions,
-        totalCorrect: correctAnswers.current   
+        totalCorrect: correctAnswers.current
       });
     }
   }
@@ -40,7 +41,9 @@ export default function Trivia({ questions, onTriviaEnds }) {
       <p>Total questions: {totalQuestions}</p>
       <p># {currentIndex + 1}</p>
       <p style={{ margin: 0 }}>Type: {currentQuestion.type}</p>
-      <p style={{ margin: 0 }}>Difficulty: {currentQuestion.difficulty}</p>
+      <Badge className={currentQuestion.difficulty}>
+        {currentQuestion.difficulty}
+      </Badge>
       <p style={{ margin: 0 }}>Category: {currentQuestion.category}</p>
       <Question question={currentQuestion} onSelectAnswer={onSelectAnswer} />
       <br />
