@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Badge from "../Badge";
+import ProgressBar from "../ProgressBar";
 import Question from "./Question";
 
 export default function Trivia({ questions, onTriviaEnds }) {
@@ -38,8 +39,12 @@ export default function Trivia({ questions, onTriviaEnds }) {
 
   return (
     <div>
-      <p>Total questions: {totalQuestions}</p>
-      <p># {currentIndex + 1}</p>
+      <div style={{margin: '1rem 0'}}>
+        <p style={{ marginBottom: '0' }}>
+          {currentIndex + 1} / {totalQuestions}
+        </p>
+        <ProgressBar value={currentIndex + 1} max={totalQuestions} />
+      </div>
       <p style={{ margin: 0 }}>Type: {currentQuestion.type}</p>
       <Badge className={currentQuestion.difficulty}>
         {currentQuestion.difficulty}
