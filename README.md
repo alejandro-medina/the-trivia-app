@@ -1,10 +1,9 @@
-# Quizz App
+# Trivia App
+
+Aplicación de trivias utilizando el API de [The Trivias API](https://the-trivia-api.com/) de [Will Fry](https://willfry.co.uk/)
 
 
-This project was created using the create-react-app module.
+Este proyecto inicialmente fue construido utilizando create-react-app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-Node version: 18.12.1
-
-NPM version: 8.19.2
+- Node 18.12.1
+- npm: 8.19.2
