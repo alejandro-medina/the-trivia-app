@@ -58,7 +58,7 @@ export default function Trivia({ questions, onTriviaEnds }) {
       <Question question={currentQuestion} onSelectAnswer={onSelectAnswer} />
 
       <div className="trivia__footer">
-        <button className="trivia__btn" disabled={!answer} onClick={nextQuestion}>
+        <button className="trivia__btn btn" disabled={!answer} onClick={nextQuestion}>
           {isLastQuestion ? 'Finalizar' : 'Siguiente'}
         </button>
       </div>
