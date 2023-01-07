@@ -58,7 +58,7 @@ function App() {
         }
 
         {(!inProgress && results && triviaStatus === 2)
-        && <div style={{textAlign: 'center'}}>
+        && <div style={{textAlign: 'center', margin: '0 auto'}}>
             <p>¡Haz acabado con la trivia!</p>
             <p>Total de preguntas: {results.totalQuestions}</p>
             <p>Total correctas: {results.totalCorrect}</p>
