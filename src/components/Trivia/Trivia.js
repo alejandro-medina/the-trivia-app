@@ -46,9 +46,9 @@ export default function Trivia({ questions, onTriviaEnds }) {
         <ProgressBar value={currentIndex + 1} max={totalQuestions} />
       </div>
       <p style={{ margin: 0 }}>Type: {currentQuestion.type}</p>
-      <Badge className={currentQuestion.difficulty}>
+      {currentQuestion.difficulty && <Badge className={currentQuestion.difficulty}>
         {currentQuestion.difficulty}
-      </Badge>
+      </Badge>}
       <p style={{ margin: 0 }}>Category: {currentQuestion.category}</p>
       <Question question={currentQuestion} onSelectAnswer={onSelectAnswer} />
       <br />
