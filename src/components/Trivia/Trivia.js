@@ -38,23 +38,30 @@ export default function Trivia({ questions, onTriviaEnds }) {
   }
 
   return (
-    <div>
+    <div className="trivia">
+      {/* Trivia header */}
       <div style={{margin: '1rem 0'}}>
         <p style={{ marginBottom: '0' }}>
           {currentIndex + 1} / {totalQuestions}
         </p>
         <ProgressBar value={currentIndex + 1} max={totalQuestions} />
       </div>
+
+      {/* Question meta data */}
       <p style={{ margin: 0 }}>Type: {currentQuestion.type}</p>
       {currentQuestion.difficulty && <Badge className={currentQuestion.difficulty}>
         {currentQuestion.difficulty}
       </Badge>}
       <p style={{ margin: 0 }}>Category: {currentQuestion.category}</p>
+
+      {/* The question and answers */}
       <Question question={currentQuestion} onSelectAnswer={onSelectAnswer} />
-      <br />
-      <button disabled={!answer} onClick={nextQuestion}>
-        {isLastQuestion ? 'Finalizar' : 'Siguiente'}
-      </button>
+
+      <div className="trivia__footer">
+        <button className="trivia__btn" disabled={!answer} onClick={nextQuestion}>
+          {isLastQuestion ? 'Finalizar' : 'Siguiente'}
+        </button>
+      </div>
     </div>
   )
 }

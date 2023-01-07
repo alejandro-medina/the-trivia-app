@@ -34,6 +34,39 @@ code {
   cursor: pointer;
 }
 
+/* Trivia Styles */
+
+.trivia .trivia__footer {
+  padding: 1rem 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trivia .trivia__footer .trivia__btn {
+  border: none;
+  min-width: 200px;
+  padding: .7rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  background-color: var(--btn-green-color);
+  color: white;
+}
+
+.trivia .trivia__footer .trivia__btn:disabled {
+  background-color: #ecf0f1;
+}
+
+@media screen and (max-width: 400px) {
+  .trivia .trivia__footer .trivia__btn {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .app {
     padding: 1rem;
