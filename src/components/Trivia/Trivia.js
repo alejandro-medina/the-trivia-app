@@ -11,6 +11,7 @@ export default function Trivia({ questions, onTriviaEnds }) {
 
   const totalQuestions = questions.length;
   const currentQuestion = questions[currentIndex];
+  const currentQuestionNumber = currentIndex + 1;
   const isLastQuestion = (currentIndex + 1) === totalQuestions;
 
   const onSelectAnswer = ({ target: { value: answerIndex } }) => {
@@ -39,12 +40,9 @@ export default function Trivia({ questions, onTriviaEnds }) {
 
   return (
     <div className="trivia">
-      {/* Trivia header */}
-      <div style={{margin: '1rem 0'}}>
-        <p style={{ marginBottom: '0' }}>
-          {currentIndex + 1} / {totalQuestions}
-        </p>
-        <ProgressBar value={currentIndex + 1} max={totalQuestions} />
+      <div className="trivia__header">
+          <p>{currentQuestionNumber} / {totalQuestions}</p>
+          <ProgressBar value={currentQuestionNumber} max={totalQuestions} />
       </div>
 
       {/* Question meta data */}

@@ -35,6 +35,19 @@ code {
 }
 
 /* Trivia Styles */
+.trivia {
+  width: 100%;
+}
+
+.trivia .trivia__header {
+  width: 100%;
+  margin: 1rem 0;
+  padding: .5rem 0;
+}
+
+.trivia .trivia__header p{
+  margin: 0;
+}
 
 .trivia .trivia__footer {
   padding: 1rem 0;
@@ -82,7 +95,5 @@ code {
   }
   .trivia-container {
     height: 100%;
-    display: flex;
-    align-items: center;
   }
 }
