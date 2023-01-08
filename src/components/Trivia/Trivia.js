@@ -45,12 +45,15 @@ export default function Trivia({ questions, onTriviaEnds }) {
           <ProgressBar value={currentQuestionNumber} max={totalQuestions} />
       </div>
 
-      {/* Question meta data */}
-      <p style={{ margin: 0 }}>Type: {currentQuestion.type}</p>
-      {currentQuestion.difficulty && <Badge className={currentQuestion.difficulty}>
-        {currentQuestion.difficulty}
-      </Badge>}
-      <p style={{ margin: 0 }}>Category: {currentQuestion.category}</p>
+      <div className="trivia__metadata">
+        {currentQuestion.difficulty &&
+          <Badge className={currentQuestion.difficulty}>
+            {currentQuestion.difficulty}
+          </Badge>
+        }
+        <Badge>{currentQuestion.type}</Badge>
+        <Badge>{currentQuestion.category}</Badge>
+      </div>
 
       {/* The question and answers */}
       <Question question={currentQuestion} onSelectAnswer={onSelectAnswer} />

@@ -41,12 +41,16 @@ code {
 
 .trivia .trivia__header {
   width: 100%;
-  margin: 1rem 0;
-  padding: .5rem 0;
+  margin: .5rem 0;
 }
 
 .trivia .trivia__header p{
   margin: 0;
+}
+
+.trivia .trivia__metadata {
+  display: flex;
+  gap: .25rem;
 }
 
 .trivia .trivia__footer {
