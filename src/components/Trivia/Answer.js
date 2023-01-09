@@ -1,14 +1,12 @@
-export default function Answer({ answerText, index, onSelectAnswer }) {
+import styles from "./Answer.module.css";
+
+export default function Answer({ answerText, selected, onSelectAnswer }) {
+
+  const { answer, active } = styles;
+
   return (
-    <div>
-      <input
-        type="radio"
-        name="answer"
-        id={answerText}
-        value={index}
-        onChange={onSelectAnswer}
-      />
-      <label htmlFor={answerText}> {answerText} </label>
+    <div onClick={onSelectAnswer} className={`${answer} ${selected ? active : ''}`}>
+      {answerText}
     </div>
   )
 }
