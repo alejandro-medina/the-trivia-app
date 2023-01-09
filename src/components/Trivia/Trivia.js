@@ -14,8 +14,19 @@ export default function Trivia({ questions, onTriviaEnds }) {
   const currentQuestionNumber = currentIndex + 1;
   const isLastQuestion = (currentIndex + 1) === totalQuestions;
 
-  const onSelectAnswer = ({ target: { value: answerIndex } }) => {
+  const markAnswerAsActive = (answerIndex) => {
+    currentQuestion.answers.forEach((answer, idx) => {
+      if (answerIndex === idx) {
+        answer.selected = true;
+      } else {
+        answer.selected = false;
+      }
+    });
+  }
+
+  const onSelectAnswer = (answerIndex) => {
     setAnswer(currentQuestion.answers[answerIndex]);
+    markAnswerAsActive(answerIndex);
   }
 
   const nextQuestion = () => {
