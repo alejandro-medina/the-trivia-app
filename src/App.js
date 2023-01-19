@@ -44,32 +44,30 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <div className="trivia-container">
+    <div className="trivia-app">
+      {((!inProgress || !questions.length) && triviaStatus === 0) &&
+        <Cover startQuizz={startQuizz} loading={loading} />
+      }
 
-        {((!inProgress || !questions.length) && triviaStatus === 0) && <Cover startQuizz={startQuizz} loading={loading} />}
+      {((questions.length > 0 && inProgress) && triviaStatus === 1)
+        && <Trivia questions={questions} onTriviaEnds={(results) => {
+          setInProgress(false);
+          setResults(results);
+          setTriviaStatus(2);
+        }} />
+      }
 
-        {((questions.length > 0 && inProgress) && triviaStatus === 1) 
-          && <Trivia questions={questions} onTriviaEnds={(results) => {
-            setInProgress(false);
-            setResults(results);
-            setTriviaStatus(2);
-          }}/>
-        }
+      {(!inProgress && results && triviaStatus === 2)
+        && <div style={{ textAlign: 'center', margin: '0 auto' }}>
+          <p>¡Haz acabado con la trivia!</p>
+          <p>Total de preguntas: {results.totalQuestions}</p>
+          <p>Total correctas: {results.totalCorrect}</p>
 
-        {(!inProgress && results && triviaStatus === 2)
-        && <div style={{textAlign: 'center', margin: '0 auto'}}>
-            <p>¡Haz acabado con la trivia!</p>
-            <p>Total de preguntas: {results.totalQuestions}</p>
-            <p>Total correctas: {results.totalCorrect}</p>
-
-            <button onClick={restart}>
-              Inicio
-            </button>
+          <button onClick={restart}>
+            Inicio
+          </button>
 
         </div>}
-
-      </div>
     </div>
   );
 }

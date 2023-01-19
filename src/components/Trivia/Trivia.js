@@ -50,29 +50,33 @@ export default function Trivia({ questions, onTriviaEnds }) {
   }
 
   return (
-    <div className="trivia">
-      <div className="trivia__header">
-          <p>{currentQuestionNumber} / {totalQuestions}</p>
-          <ProgressBar value={currentQuestionNumber} max={totalQuestions} />
-      </div>
+    <div className="app">
+      <div className="trivia-container">
+        <div className="trivia">
+          <div className="trivia__header">
+              <p>{currentQuestionNumber} / {totalQuestions}</p>
+              <ProgressBar value={currentQuestionNumber} max={totalQuestions} />
+          </div>
 
-      <div className="trivia__metadata">
-        {currentQuestion.difficulty &&
-          <Badge className={currentQuestion.difficulty}>
-            {currentQuestion.difficulty}
-          </Badge>
-        }
-        <Badge>{currentQuestion.type}</Badge>
-        <Badge>{currentQuestion.category}</Badge>
-      </div>
+          <div className="trivia__metadata">
+            {currentQuestion.difficulty &&
+              <Badge className={currentQuestion.difficulty}>
+                {currentQuestion.difficulty}
+              </Badge>
+            }
+            <Badge>{currentQuestion.type}</Badge>
+            <Badge>{currentQuestion.category}</Badge>
+          </div>
 
-      {/* The question and answers */}
-      <Question question={currentQuestion} onSelectAnswer={onSelectAnswer} />
+          {/* The question and answers */}
+          <Question question={currentQuestion} onSelectAnswer={onSelectAnswer} />
 
-      <div className="trivia__footer">
-        <button className="trivia__btn btn" disabled={!answer} onClick={nextQuestion}>
-          {isLastQuestion ? 'Finalizar' : 'Siguiente'}
-        </button>
+          <div className="trivia__footer">
+            <button className="trivia__btn btn" disabled={!answer} onClick={nextQuestion}>
+              {isLastQuestion ? 'Finalizar' : 'Siguiente'}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   )
