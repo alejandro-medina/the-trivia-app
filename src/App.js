@@ -74,6 +74,10 @@ function App() {
               Alejandro Medina
             </a>
           </p>
+          <p>Trivias from <a href="https://the-trivia-api.com/" target="_blank" rel="noreferrer">
+            The Trivia API
+            </a>
+          </p>
           <a href="https://www.flaticon.com/free-icons/quiz" title="quiz icons">Quiz icons created by Freepik - Flaticon</a>
         </div>
       </footer>
