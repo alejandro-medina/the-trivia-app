@@ -68,6 +68,15 @@ function App() {
           </button>
 
         </div>}
+      <footer>
+        <div className="app">
+          <p>Created by <a href="https://github.com/alejandro-medina" target="_blank" rel="noreferrer">
+              Alejandro Medina
+            </a>
+          </p>
+          <a href="https://www.flaticon.com/free-icons/quiz" title="quiz icons">Quiz icons created by Freepik - Flaticon</a>
+        </div>
+      </footer>
     </div>
   );
 }

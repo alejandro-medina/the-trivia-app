@@ -135,3 +135,13 @@ code {
 .cover button.btn-3d {
   margin: 1rem;
 }
+
+
+footer {
+  background-color: #8e44ad;
+  color: white;
+}
+
+footer a {
+  color: white;
+}
