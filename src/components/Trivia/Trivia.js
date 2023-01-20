@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import Badge from "../Badge";
 import ProgressBar from "../ProgressBar";
 import Question from "./Question";
+import "./Trivia.css";
 
 export default function Trivia({ questions, onTriviaEnds }) {
 

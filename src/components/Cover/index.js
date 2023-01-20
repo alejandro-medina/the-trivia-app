@@ -1,4 +1,5 @@
-import Button from "./Button/Button"
+import Button from "../Button/Button";
+import "./Cover.css";
 
 export default function Cover({ startQuizz, loading }) {
   return (

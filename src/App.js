@@ -4,7 +4,7 @@ import { useState } from "react";
 import { generateTrivia } from "./utils/quizz";
 
 // Components
-import Cover from "./components/TriviaCover";
+import Cover from "./components/Cover";
 import Trivia from "./components/Trivia/Trivia";
 import Footer from "./components/Footer";
 
@@ -46,20 +46,21 @@ function App() {
 
   return (
     <div className="trivia-app">
-      {((!inProgress || !questions.length) && triviaStatus === 0) &&
-        <Cover startQuizz={startQuizz} loading={loading} />
-      }
+      <div className="main">
+        {((!inProgress || !questions.length) && triviaStatus === 0) &&
+          <Cover startQuizz={startQuizz} loading={loading} />
+        }
 
-      {((questions.length > 0 && inProgress) && triviaStatus === 1)
-        && <Trivia questions={questions} onTriviaEnds={(results) => {
-          setInProgress(false);
-          setResults(results);
-          setTriviaStatus(2);
-        }} />
-      }
+        {((questions.length > 0 && inProgress) && triviaStatus === 1)
+          && <Trivia questions={questions} onTriviaEnds={(results) => {
+            setInProgress(false);
+            setResults(results);
+            setTriviaStatus(2);
+          }} />
+        }
 
-      {(!inProgress && results && triviaStatus === 2)
-        && <div style={{ textAlign: 'center', margin: '0 auto' }}>
+        {(!inProgress && results && triviaStatus === 2)
+          && <div style={{ textAlign: 'center', margin: '0 auto' }}>
           <p>¡Haz acabado con la trivia!</p>
           <p>Total de preguntas: {results.totalQuestions}</p>
           <p>Total correctas: {results.totalCorrect}</p>
@@ -69,6 +70,7 @@ function App() {
           </button>
 
         </div>}
+      </div>
       <footer>
         <Footer />
       </footer>
