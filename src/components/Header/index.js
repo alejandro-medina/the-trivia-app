@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header>
       <div className="app">
-        The Trivia App
+        <p>The Trivia App</p>
       </div>
     </header>
   )

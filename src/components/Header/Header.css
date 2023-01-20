@@ -2,3 +2,8 @@ header {
   background-color: #8e44ad;
   color: white;
 }
+
+header p {
+  margin: 0;
+  font-weight: bold;
+}

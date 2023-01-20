@@ -7,6 +7,7 @@ import { generateTrivia } from "./utils/quizz";
 import Cover from "./components/Cover";
 import Trivia from "./components/Trivia/Trivia";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
 
   return (
     <div className="trivia-app">
+      <Header />
       <div className="main">
         {((!inProgress || !questions.length) && triviaStatus === 0) &&
           <Cover startQuizz={startQuizz} loading={loading} />
