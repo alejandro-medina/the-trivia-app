@@ -1,10 +1,13 @@
 import "./Header.css";
 
-export default function Header() {
+export default function Header({ showTitle = false }) {
   return (
     <header>
       <div className="app">
-        <p>The Trivia App</p>
+        <div className="header__logo">
+          <img width="16" src="/favicon.ico" alt="Trivia icon" title="The Trivia App" />
+          {showTitle && <p>The Trivia App</p>}
+        </div>
       </div>
     </header>
   )

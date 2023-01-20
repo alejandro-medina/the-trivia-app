@@ -7,3 +7,8 @@ header p {
   margin: 0;
   font-weight: bold;
 }
+
+header .header__logo {
+  display: flex;
+  gap: .5rem;
+}

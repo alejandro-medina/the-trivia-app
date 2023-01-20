@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div className="trivia-app">
-      <Header />
+      <Header showTitle={inProgress || results}/>
       <div className="main">
         {((!inProgress || !questions.length) && triviaStatus === 0) &&
           <Cover startQuizz={startQuizz} loading={loading} />
