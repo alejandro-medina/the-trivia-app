@@ -6,6 +6,7 @@ import { generateTrivia } from "./utils/quizz";
 // Components
 import Cover from "./components/TriviaCover";
 import Trivia from "./components/Trivia/Trivia";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -69,17 +70,7 @@ function App() {
 
         </div>}
       <footer>
-        <div className="app">
-          <p>Created by <a href="https://github.com/alejandro-medina" target="_blank" rel="noreferrer">
-              Alejandro Medina
-            </a>
-          </p>
-          <p>Trivias from <a href="https://the-trivia-api.com/" target="_blank" rel="noreferrer">
-            The Trivia API
-            </a>
-          </p>
-          <a href="https://www.flaticon.com/free-icons/quiz" title="quiz icons">Quiz icons created by Freepik - Flaticon</a>
-        </div>
+        <Footer />
       </footer>
     </div>
   );
