@@ -1,0 +1,29 @@
+.results {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.results p {
+  margin: 0;
+  color: #060606;
+}
+
+.results .results__title {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Solitreo', cursive;
+}
+
+.results .results__text {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.results .results__results {
+  font-family: 'Solitreo', cursive;
+  font-size: 4rem;
+  margin-bottom: 4rem;
+}

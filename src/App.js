@@ -8,6 +8,7 @@ import Cover from "./components/Cover";
 import Trivia from "./components/Trivia/Trivia";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import ResultPage from "./components/ResultPage";
 
 function App() {
 
@@ -61,17 +62,9 @@ function App() {
           }} />
         }
 
-        {(!inProgress && results && triviaStatus === 2)
-          && <div style={{ textAlign: 'center', margin: '0 auto' }}>
-            <p>¡Haz acabado con la trivia!</p>
-            <p>Total de preguntas: {results.totalQuestions}</p>
-            <p>Total correctas: {results.totalCorrect}</p>
-
-            <button onClick={restart}>
-              Inicio
-            </button>
-
-          </div>}
+        {(!inProgress && results && triviaStatus === 2) && 
+          <ResultPage onRestart={restart} results={results} />
+        }
       </div>
       <footer>
         <Footer />
