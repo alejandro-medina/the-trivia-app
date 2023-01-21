@@ -1,9 +1,14 @@
-# Trivia App
+# The Trivia App
 
-Aplicación de trivias utilizando el API de [The Trivias API](https://the-trivia-api.com/) de [Will Fry](https://willfry.co.uk/)
+Trivias web application project built with create-react-app.
+
+**Demo**:
+
+https://the-trivia-app.vercel.app/
+
+----
+
+I used [The Trivias API](https://the-trivia-api.com/) to get the list of questions and answers.
 
 
-Este proyecto inicialmente fue construido utilizando create-react-app.
-
-- Node 18.12.1
-- npm: 8.19.2
+Clone the repository and try it in your computer! Node 18.12.1 with npm: 8.19.2
