@@ -11,6 +11,7 @@ button.btn-3d {
     border-radius: 8px;
     box-shadow: inset 0px -6px 0px var(--btn-dark-green-color), 0px -6px 0px var(--btn-green-color);
     transition: box-shadow .1s ease-in-out;
+    margin-top: 1rem;
 }
 
 button.btn-3d .button__text {
