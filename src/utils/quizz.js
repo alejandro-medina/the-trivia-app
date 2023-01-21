@@ -1,8 +1,7 @@
 
 const API_URL = "https://the-trivia-api.com/api/questions";
-const region = "SL";
 
-const getTrivia = ({ limit = 10, difficulty = "hard" }) => {
+const getTrivia = ({ limit = 10, difficulty = "easy", region = "MX" }) => {
 
   const url = `${API_URL}?limit=${limit}&region=${region}&difficulty=${difficulty}`;
 
