@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Badge from "../Badge";
 import ProgressBar from "../ProgressBar";
 import Question from "./Question";
@@ -49,6 +49,21 @@ export default function Trivia({ questions, onTriviaEnds }) {
       });
     }
   }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const KeyDownHandler = (e) => {
+    if ((e.code === "Space" || e.code === "Enter") && answer) {
+      e.preventDefault();
+      nextQuestion();
+    }
+  }
+
+  useEffect(function(){
+    document.addEventListener("keydown", KeyDownHandler)
+    return () => {
+      document.removeEventListener("keydown", KeyDownHandler);
+    }
+  }, [KeyDownHandler]);
 
   return (
     <div className="app">
