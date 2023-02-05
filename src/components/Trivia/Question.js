@@ -38,6 +38,7 @@ export default function Question({ question, onSelectAnswer }) {
           return <Answer key={`q-${question.id}-a-${idx}`}
             answerText={answer.answer}
             selected={answer.selected}
+            optionNumber={idx+1}
             onSelectAnswer={() => { onSelectAnswer(idx) }} />
         })}
       </div>

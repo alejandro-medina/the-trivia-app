@@ -8,14 +8,34 @@
   width: 100%;
 }
 
+.answer .number {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  margin-right: .5rem;
+  padding: .1rem;
+  border: 2px solid #9b59b6;
+  background-color: white;
+  border-radius: 4px;
+}
+
 .answer.active {
   background-color: #3498db;
   border-color: #2980b9;
   color: white;
 }
 
+.answer.active .number {
+  color: initial;
+}
+
 @media screen and (min-width: 768px) {
     .answer {
       width: 50%;
+    }
+    .answer .number {
+      display: inline-flex;
     }
 }
