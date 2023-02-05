@@ -25,7 +25,9 @@
 
 .trivia .trivia__metadata {
   display: flex;
+  flex-wrap: wrap;
   gap: .25rem;
+  margin-top: 1rem;
 }
 
 .trivia .trivia__footer {
@@ -40,7 +42,6 @@
 
 .trivia .trivia__footer .trivia__btn {
   border: none;
-  min-width: 200px;
   padding: .7rem 1rem;
   border-radius: 4px;
   font-weight: 600;
@@ -68,5 +69,11 @@
 @media screen and (min-width: 768px) {
   .trivia-container {
     height: 100%;
+  }
+}
+
+@media screen and (min-width: 200px) {
+  .trivia .trivia__footer .trivia__btn {
+    min-width: 200px;
   }
 }

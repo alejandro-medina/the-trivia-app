@@ -9,6 +9,8 @@ p.badge {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 p.badge.easy {
