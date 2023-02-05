@@ -4,13 +4,20 @@ import styles from "./Question.module.css";
 
 export default function Question({ question, onSelectAnswer }) {
   const { title, answers__container } = styles;
+  const totalAnswers = question.answers?.length;
+
+  const existOption = (number) => {
+    return number <= totalAnswers;
+  }
 
   const KeyDownHandler = (e) => {
-    const availableOptions = ["1", "2", "3", "4"];
-    if (availableOptions.includes(e.key)) {
-      e.preventDefault();
-      const idx = e.key - 1;
-      onSelectAnswer(idx);
+    const optionPressed = parseInt(e.key);
+    if (!isNaN(optionPressed)) {
+      if (existOption(optionPressed)) {
+        e.preventDefault();
+        const optionPressedIndex = optionPressed - 1;
+        onSelectAnswer(optionPressedIndex);
+      }
     }
   }
 
